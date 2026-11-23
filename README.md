@@ -17,9 +17,9 @@ Pengujian dilakukan dengan izin tertulis dari pemilik (22 November 2026 sampai 1
 | Dika Chafizh Hizbulloh | dikachafidh |
 
 ## Isi repositori
-- `laporan/` : laporan pengujian (Test Plan, Test Case, Test Report)
-- `izin/` : bukti izin pemilik website
-- `lighthouse/` : hasil pengukuran performa (Lighthouse)
+- 01-administrasi-izin
+- 02-laporan-pengujian
+- 03-evidence-pengujian
 
 ## Acuan
 - Modul Testing dan QA Perangkat Lunak (Pertemuan 2 dan 16)
