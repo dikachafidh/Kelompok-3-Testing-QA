@@ -12,12 +12,22 @@ test.describe('RizzFlow Automated E2E & Regression Suite (ISO 29119-5)', () => {
 
   test('AUTO-02: Pencarian katalog dengan karakter khusus XSS aman (SEC-03)', async ({ page }) => {
     await page.goto(BASE_URL);
-    const searchInput = page.locator('input[placeholder*="Cari"], input[type="search"]').first();
-    if (await searchInput.isVisible()) {
-      await searchInput.fill(`<>"'&`);
-      await expect(page.locator('body')).not.toContainText('Application error');
-      await page.screenshot({ path: `${EVIDENCE_DIR}/evidence-auto-02-xss-check.png` });
-    }
+    // Perbaikan: kolom cari dibuka lebih dulu dari tab Katalog dan WAJIB terlihat,
+    // sehingga test tidak lulus "kosong" bila elemen tidak ditemukan.
+    await page.getByText(/Katalog/i).first().click();
+    const searchInput = page.locator('input[placeholder*="Cari" i], input[type="search"]').first();
+    await expect(searchInput).toBeVisible();
+
+    let dialogMuncul = false;
+    page.on('dialog', async (d) => { dialogMuncul = true; await d.dismiss(); });
+
+    const payload = `<img src=x onerror=alert(1)><script>alert(1)</script>"'&`;
+    await searchInput.fill(payload);
+    await expect(page.locator('body')).not.toContainText('Application error');
+    // Payload tidak boleh dieksekusi dan tidak boleh menjadi elemen DOM baru.
+    expect(dialogMuncul).toBe(false);
+    await expect(page.locator('img[src="x"]')).toHaveCount(0);
+    await page.screenshot({ path: `${EVIDENCE_DIR}/evidence-auto-02-xss-check.png` });
   });
 
   test('AUTO-03: Akses langsung halaman /checkout saat keranjang kosong (CRT-06)', async ({ page }) => {
