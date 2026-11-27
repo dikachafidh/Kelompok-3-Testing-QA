@@ -1,6 +1,6 @@
 # Pengujian Perangkat Lunak & Quality Assurance — Website RizzFlow
 
-Repositori dokumentasi, artefak pengujian berbasis *keyword* (**ISO/IEC/IEEE 29119-5:2024**), pengujian *white-box*, dan skrip otomatisasi *End-to-End* (E2E) pada aplikasi toko produk digital **RizzFlow** (`https://rizzflow-theta.vercel.app/`).
+Repositori dokumentasi, artefak pengujian berbasis *keyword* (**ISO/IEC/IEEE 29119-5:2024**), pengujian *white-box*, dan skrip otomatisasi *End-to-End* (E2E) pada aplikasi toko produk digital **RizzFlow** (`[https://rizzflow-theta.vercel.app/](https://rizzflow-theta.vercel.app/)`).
 
 - **Mata Kuliah:** Software Testing / Quality Assurance
 - **Program Studi:** Teknik Informatika — Fakultas Ilmu Komputer, Universitas Pamulang (2026)
@@ -24,14 +24,16 @@ Repositori dokumentasi, artefak pengujian berbasis *keyword* (**ISO/IEC/IEEE 291
 
 ```text
 Kelompok-3-Testing-QA/
-├── 01-administrasi-izin/          # Bukti email permohonan & persetujuan tertulis pemilik RizzFlow
-├── 02-laporan-pengujian/          # Dokumen laporan lengkap (ISO/IEC/IEEE 29119-5:2024)
-├── 02-test-case/                  # Daftar 75 test case lengkap & rekapitulasi hasil (Excel)
+├── 01-administrasi-izin/                  # Bukti email permohonan & persetujuan tertulis pemilik RizzFlow
+├── 02-laporan-pengujian/                  # Dokumen laporan lengkap Word & PDF (ISO/IEC/IEEE 29119-5:2024)
 ├── 03-evidence-pengujian/
-│   ├── evidence/                  # Screenshot bukti uji situs live, Lighthouse, & usability (11 responden)
-│   └── automation-whitebox/       # Screenshot bukti terminal & eksekusi Playwright & Vitest
+│   ├── evidence/                          # Screenshot bukti eksekusi pengujian fungsional, kompatibilitas, jaringan, keamanan, & aksesibilitas
+│   ├── lighthouse/                        # Laporan JSON & tangkapan layar pengukuran performa Google Lighthouse
+│   ├── usb/                               # Bukti pengujian usability berbasis tugas & rekap kuesioner SUS (11 responden)
+│   └── automation-whitebox/               # Screenshot bukti eksekusi terminal & browser Playwright serta Vitest
 ├── 04-automation-testing/
-│   ├── tests/                     # Skrip Automated E2E UI Test situs live (Playwright)
-│   └── unit-tests/                # Skrip White-Box Basis Path Unit Test (Vitest)
-├── 04-validasi-qa/                # Instrumen & hasil wawancara validasi praktisi QA profesional
+│   ├── tests/                             # Skrip Automated E2E UI Test situs live (Playwright: AUTO-01 s.d. AUTO-03)
+│   └── unit-tests/                        # Skrip White-Box Basis Path Unit Test (Vitest)
+├── 05-validasi-QA/                        # Instrumen & catatan wawancara validasi praktisi QA profesional
+├── Lampiran_2_Daftar_Test_Case_RizzFlow.xlsx  # Daftar 78 test case lengkap (75 black-box/non-fungsional + 3 E2E), definisi keyword, & rekapitulasi
 └── README.md
